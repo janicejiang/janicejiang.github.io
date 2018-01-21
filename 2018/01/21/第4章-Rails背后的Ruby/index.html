@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Janice Jiang">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="自定义 helper1234567891011# 定义 full_title 方法module ApplicationHelper  def full_title(page_title = &apos;&apos;)    base_title = &quot;Ruby on Rails Tutorial Sample App&quot;    if page_title.empty?      base_title    else">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第4章 Rails背后的Ruby">
+<meta property="og:url" content="http://yoursite.com/2018/01/21/第4章-Rails背后的Ruby/index.html">
 <meta property="og:site_name" content="Janice Jiang">
+<meta property="og:description" content="自定义 helper1234567891011# 定义 full_title 方法module ApplicationHelper  def full_title(page_title = &apos;&apos;)    base_title = &quot;Ruby on Rails Tutorial Sample App&quot;    if page_title.empty?      base_title    else">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-21T11:57:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Janice Jiang">
+<meta name="twitter:title" content="第4章 Rails背后的Ruby">
+<meta name="twitter:description" content="自定义 helper1234567891011# 定义 full_title 方法module ApplicationHelper  def full_title(page_title = &apos;&apos;)    base_title = &quot;Ruby on Rails Tutorial Sample App&quot;    if page_title.empty?      base_title    else">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/21/第4章-Rails背后的Ruby/"/>
 
 
 
 
 
-  <title>Janice Jiang</title>
+  <title>第4章 Rails背后的Ruby | Janice Jiang</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -256,9 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/21/第4章-Rails背后的Ruby/" itemprop="url">第4章 Rails背后的Ruby</a></h1>
+          <h1 class="post-title" itemprop="name headline">第4章 Rails背后的Ruby</h1>
         
 
         <div class="post-meta">
@@ -330,9 +331,7 @@
       
 
       
-        
-          
-            <h1 id="自定义-helper"><a href="#自定义-helper" class="headerlink" title="自定义 helper"></a>自定义 helper</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 full_title 方法</span></span><br><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">ApplicationHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">full_title</span><span class="params">(page_title = <span class="string">''</span>)</span></span></span><br><span class="line">    base_title = <span class="string">"Ruby on Rails Tutorial Sample App"</span></span><br><span class="line">    <span class="keyword">if</span> page_title.empty?</span><br><span class="line">      base_title</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      page_title + <span class="string">" | "</span> + base_title</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+        <h1 id="自定义-helper"><a href="#自定义-helper" class="headerlink" title="自定义 helper"></a>自定义 helper</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 full_title 方法</span></span><br><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">ApplicationHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">full_title</span><span class="params">(page_title = <span class="string">''</span>)</span></span></span><br><span class="line">    base_title = <span class="string">"Ruby on Rails Tutorial Sample App"</span></span><br><span class="line">    <span class="keyword">if</span> page_title.empty?</span><br><span class="line">      base_title</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      page_title + <span class="string">" | "</span> + base_title</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight erb"><figcaption><span>application.html.erb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;%# 调用 full_title 方法 %&gt;</span></span><br><span class="line">&lt;title&gt;&lt;%=<span class="ruby"> full_title(<span class="keyword">yield</span>(<span class="symbol">:title</span>)) </span>%&gt;&lt;/title&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="空字符串"><a href="#空字符串" class="headerlink" title="空字符串"></a>空字符串</h2><p>由于 app/views/static_pages/home.html.erb 没有 <code>&lt;% provide(:title, &quot;Home&quot;) %&gt;</code><br><code>yield(:title)</code> 的返回值为空字符串 <code>&quot;&quot;</code>, 并赋值给 <code>page_title</code><br><code>page_title.empty?</code> 返回 <code>true</code><br>因此 full_title helper 的返回值为 <code>base_title</code></p>
 <h2 id="参数默认值"><a href="#参数默认值" class="headerlink" title="参数默认值"></a>参数默认值</h2><p>因为 <code>def full_title(page_title = &#39;&#39;)</code> 中提供了参数的默认值, 即空字符串. 所以,<br><code>page_title</code> 参数是可选的, 可以直接调用 <code>full_title</code> 方法不指定参数.</p>
@@ -352,8 +351,6 @@
 <li>调用函数时, 如果散列是最后一个参数, 可以省略花括号</li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -370,180 +367,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/第3章-基本静态的页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Janice Jiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice Jiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/第3章-基本静态的页面/" itemprop="url">第3章 基本静态的页面</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T18:33:17+08:00">
-                2018-01-19
-              </time>
+              <a href="/2018/01/19/第3章-基本静态的页面/" rel="next" title="第3章 基本静态的页面">
+                <i class="fa fa-chevron-left"></i> 第3章 基本静态的页面
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/railstutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">railstutorial</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="创建演示应用"><a href="#创建演示应用" class="headerlink" title="创建演示应用"></a>创建演示应用</h1><h2 id="设定不要上传的档"><a href="#设定不要上传的档" class="headerlink" title="设定不要上传的档"></a>设定不要上传的档</h2><p>(这一步教程里没有, 但我认为这是新建一个项目首先要做的)</p>
-<ul>
-<li><code>cp config/database.yml config/database.yml.example</code></li>
-<li>在 <code>.gitignore</code> 文件中加入 <code>config/database.yml</code></li>
-<li>然后init项目</li>
-</ul>
-<h2 id="gem-常用格式"><a href="#gem-常用格式" class="headerlink" title="gem 常用格式"></a>gem 常用格式</h2><ul>
-<li><code>gem &#39;sqlite3&#39;</code> 如果没在 gem 指令中指定版本号, Bundler 会自动安装最新版</li>
-<li><code>gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;</code> 安装版本号大于或等于 1.3.0 的最新版 uglifier</li>
-<li><code>gem &#39;pg&#39;, &#39;~&gt; 0.18&#39;</code> 只安装最后一个数字变化的版本(例如从 0.18 到 0.21.0)</li>
-</ul>
-<h2 id="heroku-常用指令"><a href="#heroku-常用指令" class="headerlink" title="heroku 常用指令"></a>heroku 常用指令</h2><ul>
-<li>heroku 只能免费创建5个应用, 因为常常用 heroku 做练习, 所以在创建应用之前先用<br><code>heroku apps</code> 确认已创建的应用个数.</li>
-<li>如果满额了, 则删除一个 <code>heroku apps:destroy --app rails101</code></li>
-<li>创建应用时指定应用名称 <code>heroku create railstutorial</code></li>
-</ul>
-<h1 id="静态页面"><a href="#静态页面" class="headerlink" title="静态页面"></a>静态页面</h1><h2 id="home-动作的路由"><a href="#home-动作的路由" class="headerlink" title="home 动作的路由"></a>home 动作的路由</h2><p><code>get &#39;static_pages/home&#39;</code> 把发给 static_pages/home 的 GET 请求, 映射到 StaticPages<br>控制器的 home 动作上.</p>
-<h2 id="HTTP-基本操作"><a href="#HTTP-基本操作" class="headerlink" title="HTTP 基本操作"></a>HTTP 基本操作</h2><p>(四种请求类型 Rails 都支持)<br><code>GET</code> 读取网页<br><code>POST</code> 提交表单<br><code>PATCH</code> 更新<br><code>DELETE</code> 销毁</p>
-<h2 id="继承-lt"><a href="#继承-lt" class="headerlink" title="继承 &lt;"></a>继承 &lt;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesController &lt; ApplicationController</span><br><span class="line">  def home</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>如果是普通的 Ruby 代码, <code>home</code> 方法什么也做不了. 但因为 StaticPagesController 继承自<br>ApplicationController, 其中的方法在 Rails 框架中就有了特殊意义.<br>访问 /static_pages/home 时, Rails 会在 StaticPages 控制器中寻找 home 动作, 然后执行该<br>动作, 因为 home 动作是空的, 所以只会渲染相应的视图.</p>
-<h1 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h1><p>如果测试代码特别简短, 倾向于先编写测试<br><strong>TDD 测试驱动开发流程:</strong></p>
-<ul>
-<li>遇红: 先编写一个失败测试</li>
-<li>变绿: 然后编写应用代码让测试通过</li>
-<li>重构: 最后再根据需要重构代码</li>
-</ul>
-<h1 id="特殊的函数-setup"><a href="#特殊的函数-setup" class="headerlink" title="特殊的函数 setup"></a>特殊的函数 setup</h1><p>这个函数在每个测试运行之前执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesControllerTest &lt; ActionDispatch::IntegrationTest</span><br><span class="line">  def setup</span><br><span class="line">    @base_title = &quot;Ruby on Rails Tutorial Sample App&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -553,138 +398,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Janice Jiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Janice Jiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T15:19:27+08:00">
-                2018-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -692,6 +410,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -712,8 +434,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -768,6 +499,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义-helper"><span class="nav-number">1.</span> <span class="nav-text">自定义 helper</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#空字符串"><span class="nav-number">1.1.</span> <span class="nav-text">空字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数默认值"><span class="nav-number">1.2.</span> <span class="nav-text">参数默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module-模块"><span class="nav-number">1.3.</span> <span class="nav-text">module 模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#block-块"><span class="nav-number">2.</span> <span class="nav-text">block 块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散列和符号"><span class="nav-number">3.</span> <span class="nav-text">散列和符号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三种形式"><span class="nav-number">3.1.</span> <span class="nav-text">三种形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套散列"><span class="nav-number">3.2.</span> <span class="nav-text">嵌套散列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重温引入-CSS-的代码"><span class="nav-number">3.3.</span> <span class="nav-text">重温引入 CSS 的代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -908,6 +655,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

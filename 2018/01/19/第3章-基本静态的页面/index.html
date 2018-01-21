@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Janice Jiang">
 <meta property="og:description" content="创建演示应用设定不要上传的档(这一步教程里没有, 但我认为这是新建一个项目首先要做的)  cp config/database.yml config/database.yml.example 在 .gitignore 文件中加入 config/database.yml 然后init项目  gem 常用格式 gem &amp;#39;sqlite3&amp;#39; 如果没在 gem 指令中指定版本号, Bundl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-20T13:53:28.000Z">
+<meta property="og:updated_time" content="2018-01-21T08:22:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第3章 基本静态的页面">
 <meta name="twitter:description" content="创建演示应用设定不要上传的档(这一步教程里没有, 但我认为这是新建一个项目首先要做的)  cp config/database.yml config/database.yml.example 在 .gitignore 文件中加入 config/database.yml 然后init项目  gem 常用格式 gem &amp;#39;sqlite3&amp;#39; 如果没在 gem 指令中指定版本号, Bundl">
@@ -350,14 +350,14 @@
 <h1 id="静态页面"><a href="#静态页面" class="headerlink" title="静态页面"></a>静态页面</h1><h2 id="home-动作的路由"><a href="#home-动作的路由" class="headerlink" title="home 动作的路由"></a>home 动作的路由</h2><p><code>get &#39;static_pages/home&#39;</code> 把发给 static_pages/home 的 GET 请求, 映射到 StaticPages<br>控制器的 home 动作上.</p>
 <h2 id="HTTP-基本操作"><a href="#HTTP-基本操作" class="headerlink" title="HTTP 基本操作"></a>HTTP 基本操作</h2><p>(四种请求类型 Rails 都支持)<br><code>GET</code> 读取网页<br><code>POST</code> 提交表单<br><code>PATCH</code> 更新<br><code>DELETE</code> 销毁</p>
 <h2 id="继承-lt"><a href="#继承-lt" class="headerlink" title="继承 &lt;"></a>继承 &lt;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesController &lt; ApplicationController</span><br><span class="line">  def home</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>如果是普通的 Ruby 代码, <code>home</code> 方法什么也做不了. 但因为 StaticPagesController 继承自<br>ApplicationController, 其中的方法在 Rails 框架中就有了特殊意义.<br>访问 /static_pages/home 时, Rails 会在 StaticPages 控制器中寻找 home 动作, 然后执行该<br>动作, 因为 home 动作是空的, 所以只会渲染相应的试图.</p>
+<p>如果是普通的 Ruby 代码, <code>home</code> 方法什么也做不了. 但因为 StaticPagesController 继承自<br>ApplicationController, 其中的方法在 Rails 框架中就有了特殊意义.<br>访问 /static_pages/home 时, Rails 会在 StaticPages 控制器中寻找 home 动作, 然后执行该<br>动作, 因为 home 动作是空的, 所以只会渲染相应的视图.</p>
 <h1 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h1><p>如果测试代码特别简短, 倾向于先编写测试<br><strong>TDD 测试驱动开发流程:</strong></p>
 <ul>
 <li>遇红: 先编写一个失败测试</li>
 <li>变绿: 然后编写应用代码让测试通过</li>
 <li>重构: 最后再根据需要重构代码</li>
 </ul>
-<h1 id="特殊的函数-setup"><a href="#特殊的函数-setup" class="headerlink" title="特殊的函数 setup"></a>特殊的函数 setup</h1><p>这个函数在每个测试运行之前执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def setup</span><br><span class="line">  @base_title = &quot;Ruby on Rails Tutorial Sample App&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<h1 id="特殊的函数-setup"><a href="#特殊的函数-setup" class="headerlink" title="特殊的函数 setup"></a>特殊的函数 setup</h1><p>这个函数在每个测试运行之前执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesControllerTest &lt; ActionDispatch::IntegrationTest</span><br><span class="line">  def setup</span><br><span class="line">    @base_title = &quot;Ruby on Rails Tutorial Sample App&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -391,6 +391,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/21/第4章-Rails背后的Ruby/" rel="prev" title="第4章 Rails背后的Ruby">
+                第4章 Rails背后的Ruby <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
