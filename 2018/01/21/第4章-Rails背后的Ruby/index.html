@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Janice Jiang">
 <meta property="og:description" content="自定义 helper1234567891011# 定义 full_title 方法module ApplicationHelper  def full_title(page_title = &apos;&apos;)    base_title = &quot;Ruby on Rails Tutorial Sample App&quot;    if page_title.empty?      base_title    else">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T11:57:01.000Z">
+<meta property="og:updated_time" content="2018-01-22T09:53:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第4章 Rails背后的Ruby">
 <meta name="twitter:description" content="自定义 helper1234567891011# 定义 full_title 方法module ApplicationHelper  def full_title(page_title = &apos;&apos;)    base_title = &quot;Ruby on Rails Tutorial Sample App&quot;    if page_title.empty?      base_title    else">
@@ -341,7 +341,7 @@
 <h1 id="block-块"><a href="#block-块" class="headerlink" title="block 块"></a>block 块</h1><p><strong>约定:</strong><br>当块只有一行简单的代码时使用花括号形式<br>当块是一行很长的代码, 或者有多行时使用 do…end 形式</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>..<span class="number">5</span>).each &#123; <span class="params">|i|</span> puts <span class="number">2</span> * i &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>..<span class="number">5</span>).each <span class="keyword">do</span> <span class="params">|number|</span></span><br><span class="line">  puts <span class="number">2</span> * number</span><br><span class="line">  puts <span class="string">'-'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>举个栗子: 🌰<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test <span class="string">"should get root"</span> <span class="keyword">do</span></span><br><span class="line">  get root_url</span><br><span class="line">  assert_response <span class="symbol">:success</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>举个栗子:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test <span class="string">"should get root"</span> <span class="keyword">do</span></span><br><span class="line">  get root_url</span><br><span class="line">  assert_response <span class="symbol">:success</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 <p>从 <code>do</code> 关键字可以看出, 测试的主题其实就是个块, <code>test</code> 方法的参数是一个字符串(测试的描述)和一个<br>块, 运行测试组件时会执行块中的内容.</p>
 <h1 id="散列和符号"><a href="#散列和符号" class="headerlink" title="散列和符号"></a>散列和符号</h1><h2 id="三种形式"><a href="#三种形式" class="headerlink" title="三种形式"></a>三种形式</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user = &#123; <span class="string">"first_name"</span> =&gt; <span class="string">"Michael"</span>, <span class="string">"last_name"</span> =&gt; <span class="string">"Hartl"</span> &#125;</span><br><span class="line">h1 = &#123; <span class="symbol">:name</span> =&gt; <span class="string">"Michael Hartl"</span>, <span class="symbol">:email</span> =&gt; <span class="string">"michael@example.com"</span> &#125;</span><br><span class="line">h2 = &#123; <span class="symbol">name:</span> <span class="string">"Michael Hartl"</span>, <span class="symbol">email:</span> <span class="string">"michael@example.com"</span> &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="嵌套散列"><a href="#嵌套散列" class="headerlink" title="嵌套散列"></a>嵌套散列</h2><p>(Rails 大量使用这种散列中有散列的形式)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;&#125;</span><br><span class="line">params[<span class="symbol">:user</span>] = &#123; <span class="symbol">name:</span> <span class="string">"Michael Hartl"</span>, <span class="symbol">email:</span> <span class="string">"mhartl@example.com"</span> &#125;</span><br></pre></td></tr></table></figure></p>
@@ -383,6 +383,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/22/第5章-完善布局/" rel="prev" title="第5章 完善布局">
+                第5章 完善布局 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -463,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

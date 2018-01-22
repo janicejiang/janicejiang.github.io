@@ -239,6 +239,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/第5章-完善布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Janice Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Janice Jiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/第5章-完善布局/" itemprop="url">第5章 完善布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T17:53:39+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/railstutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">railstutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Asset-Pipeline"><a href="#Asset-Pipeline" class="headerlink" title="Asset Pipeline"></a>Asset Pipeline</h1><p>(详见 Rails 指南 <a href="https://rails.guide/book/asset_pipeline.html#the-asset-pipeline" target="_blank" rel="noopener">第 23 章 Asset Pipeline</a>)<br><code>app/assets</code> 当前应用的静态资源文件, 因为 custom.scss 只在应用中使用, 所以把它放在<br>app/assets/stylesheets 目录中.</p>
+<p><strong>清单文件</strong><br>把静态资源文件放在适当的目录中之后, 要通过清单文件 (manifest file) 告诉 Rails 怎么把它们合并成一<br>个文件, 而且只合并 CSS 和 JavaScript 文件, 不会合并图像.</p>
+<p>在应用默认的样式清单文件 <code>application.css</code> 中,<br><code>*= require_tree .</code> 会把 app/assets/stylesheets 目录中的所有 CSS 文件都引入应用的 CSS 文件;<br><code>*= require_self</code> 会把 application.css 这个文件中的 CSS 也加载进来.</p>
+<h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get  <span class="string">'/help'</span>, <span class="symbol">to:</span> <span class="string">'static_pages#help'</span></span><br></pre></td></tr></table></figure>
+<p>这种形式把发给 /help 的 GET 请求交给 StaticPages 控制器中的 help 动作处理.</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h2><p><code>rails g integration_test site_layout</code> 生成集成测试模板<br><code>rails test:integration</code> 只测试集成测试</p>
+<h2 id="测试辅助方法"><a href="#测试辅助方法" class="headerlink" title="测试辅助方法"></a>测试辅助方法</h2><p>(参考 <a href="https://rails.guide/book/testing.html#a-guide-to-testing-rails-applications" target="_blank" rel="noopener">第 18 章 Rails 应用测试指南</a> 18.10 测试辅助方法)<br><figure class="highlight ruby"><figcaption><span>test/helpers/application_helper_test.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'test_helper'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationHelperTest</span> &lt; ActionView::TestCase</span></span><br><span class="line">  test <span class="string">"full_title helper"</span> <span class="keyword">do</span></span><br><span class="line">    assert_equal <span class="string">"Ruby on Rails Tutorial Sample App"</span>, full_title(<span class="string">""</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>针对辅助方法的测试, 只需检测辅助方法的输出和预期值是否一致.<br>因为测试类继承自 <code>ActionView::TestCase</code>, 所以在测试中可以使用 Rails 内置的辅助方法.<br>经测试, 即使没有在 <code>ActiveSupport::TestCase</code> 中 <code>include ApplicationHelper</code>, 自定义辅助方法<br>full_title 也可以调用.</p>
+<p><code>require &#39;test_helper&#39;</code> 这行代码引入 test_helper.rb 文件, 即加载默认的测试配置. 我们编写的所有<br>测试都会引入这个文件, 因此这个文件中定义的代码在所有测试中都可用.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/21/第4章-Rails背后的Ruby/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -342,7 +492,7 @@
 <h1 id="block-块"><a href="#block-块" class="headerlink" title="block 块"></a>block 块</h1><p><strong>约定:</strong><br>当块只有一行简单的代码时使用花括号形式<br>当块是一行很长的代码, 或者有多行时使用 do…end 形式</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>..<span class="number">5</span>).each &#123; <span class="params">|i|</span> puts <span class="number">2</span> * i &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>..<span class="number">5</span>).each <span class="keyword">do</span> <span class="params">|number|</span></span><br><span class="line">  puts <span class="number">2</span> * number</span><br><span class="line">  puts <span class="string">'-'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>举个栗子: 🌰<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test <span class="string">"should get root"</span> <span class="keyword">do</span></span><br><span class="line">  get root_url</span><br><span class="line">  assert_response <span class="symbol">:success</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>举个栗子:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test <span class="string">"should get root"</span> <span class="keyword">do</span></span><br><span class="line">  get root_url</span><br><span class="line">  assert_response <span class="symbol">:success</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 <p>从 <code>do</code> 关键字可以看出, 测试的主题其实就是个块, <code>test</code> 方法的参数是一个字符串(测试的描述)和一个<br>块, 运行测试组件时会执行块中的内容.</p>
 <h1 id="散列和符号"><a href="#散列和符号" class="headerlink" title="散列和符号"></a>散列和符号</h1><h2 id="三种形式"><a href="#三种形式" class="headerlink" title="三种形式"></a>三种形式</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user = &#123; <span class="string">"first_name"</span> =&gt; <span class="string">"Michael"</span>, <span class="string">"last_name"</span> =&gt; <span class="string">"Hartl"</span> &#125;</span><br><span class="line">h1 = &#123; <span class="symbol">:name</span> =&gt; <span class="string">"Michael Hartl"</span>, <span class="symbol">:email</span> =&gt; <span class="string">"michael@example.com"</span> &#125;</span><br><span class="line">h2 = &#123; <span class="symbol">name:</span> <span class="string">"Michael Hartl"</span>, <span class="symbol">email:</span> <span class="string">"michael@example.com"</span> &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="嵌套散列"><a href="#嵌套散列" class="headerlink" title="嵌套散列"></a>嵌套散列</h2><p>(Rails 大量使用这种散列中有散列的形式)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;&#125;</span><br><span class="line">params[<span class="symbol">:user</span>] = &#123; <span class="symbol">name:</span> <span class="string">"Michael Hartl"</span>, <span class="symbol">email:</span> <span class="string">"mhartl@example.com"</span> &#125;</span><br></pre></td></tr></table></figure></p>
@@ -732,7 +882,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
