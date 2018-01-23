@@ -239,6 +239,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/第6章-用户建模/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Janice Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Janice Jiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/第6章-用户建模/" itemprop="url">第6章 用户建模</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:29:25+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/railstutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">railstutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="models-模型"><a href="#models-模型" class="headerlink" title="models 模型"></a>models 模型</h1><h2 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h2><p><code>$ rails g model user</code> 模型名是单数<br><code>$ rails g controller users</code> 控制器名是复数</p>
+<h2 id="id-列"><a href="#id-列" class="headerlink" title="id 列"></a>id 列</h2><p>下图中的 <code>id</code> 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标<br>识符.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo1.png" alt=""></p>
+<h2 id="探索数据模型"><a href="#探索数据模型" class="headerlink" title="探索数据模型"></a>探索数据模型</h2><p><strong>沙盒模式:</strong><br><code>$ rails console --sandbox</code> 在沙盒模式下使用控制台, 退出当前会话后, 对数据库做的所有改动都会回归到原来的状态.</p>
+<p><strong>创建user:</strong></p>
+<ol>
+<li><code>user = User.new</code> 只在内存中创建一个对象</li>
+<li><code>user.save</code> 才把对象保存到数据库中, Rails 还会在控制台中显示对应的 <code>SQL</code> 语句.</li>
+</ol>
+<p>虽然一般习惯吧创建和保存分成如上所示的两步完成, 不过 Active Record 也允许使用 <code>User.create</code> 方法把这两步合成一步.</p>
+<h2 id="查找对象"><a href="#查找对象" class="headerlink" title="查找对象"></a>查找对象</h2><ul>
+<li><code>User.find(1)</code> 把用户的 <code>id</code> 传给 User.find 方法，Active Record 会返回 id 为 1 的用户对象; 如果 id 不存在, <code>find</code> 方法会抛出 ActiveRecord::RecordNotFound 异常.</li>
+<li><code>User.find_by(email: &quot;mhartl@example.com&quot;)</code> Active Record 还支持通过属性查找用户</li>
+</ul>
+<h2 id="reload"><a href="#reload" class="headerlink" title="reload"></a>reload</h2><p><code>user.reload.email</code> reload 方法会使用数据库中的数据重新加载对象</p>
+<h1 id="validations-验证数据"><a href="#validations-验证数据" class="headerlink" title="validations 验证数据"></a>validations 验证数据</h1><p><code>rails test:models</code> 只运行模型测试</p>
+<h2 id="valid-有效性测试"><a href="#valid-有效性测试" class="headerlink" title="valid? 有效性测试"></a>valid? 有效性测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rails console --sandbox</span><br><span class="line">&gt; user = User.new(name: &quot;&quot;, email: &quot;mhartl@example.com&quot;)</span><br><span class="line">&gt; user.valid?</span><br></pre></td></tr></table></figure>
+<p>使用 <code>valid?</code> 方法检查 user 变量的有效性, 如果有一个或多个验证失败, 返回值为 false;<br>如果所有验证都能通过, 返回 true.<br>使用 <code>user.errors.full_messages</code> 查看全部错误信息</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i</span><br></pre></td></tr></table></figure>
+<p>使用<a href="http://www.rubular.com/" target="_blank" rel="noopener">Rubular</a>测试正则表达式, 要把 \A 和 \Z 去掉.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo2.png" alt=""></p>
+<h2 id="self"><a href="#self" class="headerlink" title="self"></a>self</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  <span class="keyword">self</span>.email = <span class="keyword">self</span>.email.downcase</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>self</code> 表示当前用户. 在 User 模型中, 右侧的 self 关键字是可选的, 但左侧的 self 不能省略.<br>因此可以写成 <code>self.email = email.downcase</code></p>
+<h1 id="安全密码"><a href="#安全密码" class="headerlink" title="安全密码"></a>安全密码</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  has_secure_password</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>在模型中调用<code>has_secure_password</code>方法后, 会自动添加如下功能:</p>
+<ul>
+<li>在数据库中的 password_digest 列存储安全的密码哈希值;</li>
+<li>获得一对虚拟属性, password 和 password_confirmation, 而且创建用户对象时会<br>执行存在性验证和匹配性验证; (“虚拟”的意思是模型对象中有属性, 但数据库中没有对应的列)</li>
+<li>获得 <code>authenticate</code> 方法, 如果密码正确, 返回对应的用户对象, 否者返回 false.</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/第5章-完善布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -882,7 +1051,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

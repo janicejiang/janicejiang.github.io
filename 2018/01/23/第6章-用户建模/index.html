@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="Asset Pipeline(详见 Rails 指南 第 23 章 Asset Pipeline)app/assets 当前应用的静态资源文件, 因为 custom.scss 只在应用中使用, 所以把它放在app/assets/stylesheets 目录中. 清单文件把静态资源文件放在适当的目录中之后, 要通过清单文件 (manifest file) 告诉 Rails 怎么把它们合并成一个文件,">
+<meta name="description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第5章 完善布局">
-<meta property="og:url" content="http://yoursite.com/2018/01/22/第5章-完善布局/index.html">
+<meta property="og:title" content="第6章 用户建模">
+<meta property="og:url" content="http://yoursite.com/2018/01/23/第6章-用户建模/index.html">
 <meta property="og:site_name" content="Janice Jiang">
-<meta property="og:description" content="Asset Pipeline(详见 Rails 指南 第 23 章 Asset Pipeline)app/assets 当前应用的静态资源文件, 因为 custom.scss 只在应用中使用, 所以把它放在app/assets/stylesheets 目录中. 清单文件把静态资源文件放在适当的目录中之后, 要通过清单文件 (manifest file) 告诉 Rails 怎么把它们合并成一个文件,">
+<meta property="og:description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-22T14:03:44.000Z">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo1.png">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo2.png">
+<meta property="og:updated_time" content="2018-01-23T14:06:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第5章 完善布局">
-<meta name="twitter:description" content="Asset Pipeline(详见 Rails 指南 第 23 章 Asset Pipeline)app/assets 当前应用的静态资源文件, 因为 custom.scss 只在应用中使用, 所以把它放在app/assets/stylesheets 目录中. 清单文件把静态资源文件放在适当的目录中之后, 要通过清单文件 (manifest file) 告诉 Rails 怎么把它们合并成一个文件,">
+<meta name="twitter:title" content="第6章 用户建模">
+<meta name="twitter:description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
+<meta name="twitter:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo1.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/22/第5章-完善布局/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/23/第6章-用户建模/"/>
 
 
 
 
 
-  <title>第5章 完善布局 | Janice Jiang</title>
+  <title>第6章 用户建模 | Janice Jiang</title>
   
 
 
@@ -242,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/第5章-完善布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/第6章-用户建模/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janice Jiang">
@@ -259,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第5章 完善布局</h1>
+          <h1 class="post-title" itemprop="name headline">第6章 用户建模</h1>
         
 
         <div class="post-meta">
@@ -271,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T17:53:39+08:00">
-                2018-01-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:29:25+08:00">
+                2018-01-23
               </time>
             
 
@@ -331,15 +334,34 @@
       
 
       
-        <h1 id="Asset-Pipeline"><a href="#Asset-Pipeline" class="headerlink" title="Asset Pipeline"></a>Asset Pipeline</h1><p>(详见 Rails 指南 <a href="https://rails.guide/book/asset_pipeline.html#the-asset-pipeline" target="_blank" rel="noopener">第 23 章 Asset Pipeline</a>)<br><code>app/assets</code> 当前应用的静态资源文件, 因为 custom.scss 只在应用中使用, 所以把它放在<br>app/assets/stylesheets 目录中.</p>
-<p><strong>清单文件</strong><br>把静态资源文件放在适当的目录中之后, 要通过清单文件 (manifest file) 告诉 Rails 怎么把它们合并成一<br>个文件, 而且只合并 CSS 和 JavaScript 文件, 不会合并图像.</p>
-<p>在应用默认的样式清单文件 <code>application.css</code> 中,<br><code>*= require_tree .</code> 会把 app/assets/stylesheets 目录中的所有 CSS 文件都引入应用的 CSS 文件;<br><code>*= require_self</code> 会把 application.css 这个文件中的 CSS 也加载进来.</p>
-<h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get  <span class="string">'/help'</span>, <span class="symbol">to:</span> <span class="string">'static_pages#help'</span></span><br></pre></td></tr></table></figure>
-<p>这种形式把发给 /help 的 GET 请求交给 StaticPages 控制器中的 help 动作处理.</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h2><p><code>rails g integration_test site_layout</code> 生成集成测试模板<br><code>rails test:integration</code> 只测试集成测试</p>
-<h2 id="测试辅助方法"><a href="#测试辅助方法" class="headerlink" title="测试辅助方法"></a>测试辅助方法</h2><p>(参考 <a href="https://rails.guide/book/testing.html#a-guide-to-testing-rails-applications" target="_blank" rel="noopener">第 18 章 Rails 应用测试指南</a> 18.10 测试辅助方法)<br><figure class="highlight ruby"><figcaption><span>test/helpers/application_helper_test.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'test_helper'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationHelperTest</span> &lt; ActionView::TestCase</span></span><br><span class="line">  test <span class="string">"full_title helper"</span> <span class="keyword">do</span></span><br><span class="line">    assert_equal <span class="string">"Ruby on Rails Tutorial Sample App"</span>, full_title(<span class="string">""</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p>针对辅助方法的测试, 只需检测辅助方法的输出和预期值是否一致.<br>因为测试类继承自 <code>ActionView::TestCase</code>, 所以在测试中可以使用 Rails 内置的辅助方法.<br>经测试, 即使没有在 <code>ActiveSupport::TestCase</code> 中 <code>include ApplicationHelper</code>, 自定义辅助方法<br>full_title 也可以调用.</p>
-<p><code>require &#39;test_helper&#39;</code> 这行代码引入 test_helper.rb 文件, 即加载默认的测试配置. 我们编写的所有<br>测试都会引入这个文件, 因此这个文件中定义的代码在所有测试中都可用.</p>
+        <h1 id="models-模型"><a href="#models-模型" class="headerlink" title="models 模型"></a>models 模型</h1><h2 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h2><p><code>$ rails g model user</code> 模型名是单数<br><code>$ rails g controller users</code> 控制器名是复数</p>
+<h2 id="id-列"><a href="#id-列" class="headerlink" title="id 列"></a>id 列</h2><p>下图中的 <code>id</code> 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标<br>识符.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo1.png" alt=""></p>
+<h2 id="探索数据模型"><a href="#探索数据模型" class="headerlink" title="探索数据模型"></a>探索数据模型</h2><p><strong>沙盒模式:</strong><br><code>$ rails console --sandbox</code> 在沙盒模式下使用控制台, 退出当前会话后, 对数据库做的所有改动都会回归到原来的状态.</p>
+<p><strong>创建user:</strong></p>
+<ol>
+<li><code>user = User.new</code> 只在内存中创建一个对象</li>
+<li><code>user.save</code> 才把对象保存到数据库中, Rails 还会在控制台中显示对应的 <code>SQL</code> 语句.</li>
+</ol>
+<p>虽然一般习惯吧创建和保存分成如上所示的两步完成, 不过 Active Record 也允许使用 <code>User.create</code> 方法把这两步合成一步.</p>
+<h2 id="查找对象"><a href="#查找对象" class="headerlink" title="查找对象"></a>查找对象</h2><ul>
+<li><code>User.find(1)</code> 把用户的 <code>id</code> 传给 User.find 方法，Active Record 会返回 id 为 1 的用户对象; 如果 id 不存在, <code>find</code> 方法会抛出 ActiveRecord::RecordNotFound 异常.</li>
+<li><code>User.find_by(email: &quot;mhartl@example.com&quot;)</code> Active Record 还支持通过属性查找用户</li>
+</ul>
+<h2 id="reload"><a href="#reload" class="headerlink" title="reload"></a>reload</h2><p><code>user.reload.email</code> reload 方法会使用数据库中的数据重新加载对象</p>
+<h1 id="validations-验证数据"><a href="#validations-验证数据" class="headerlink" title="validations 验证数据"></a>validations 验证数据</h1><p><code>rails test:models</code> 只运行模型测试</p>
+<h2 id="valid-有效性测试"><a href="#valid-有效性测试" class="headerlink" title="valid? 有效性测试"></a>valid? 有效性测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rails console --sandbox</span><br><span class="line">&gt; user = User.new(name: &quot;&quot;, email: &quot;mhartl@example.com&quot;)</span><br><span class="line">&gt; user.valid?</span><br></pre></td></tr></table></figure>
+<p>使用 <code>valid?</code> 方法检查 user 变量的有效性, 如果有一个或多个验证失败, 返回值为 false;<br>如果所有验证都能通过, 返回 true.<br>使用 <code>user.errors.full_messages</code> 查看全部错误信息</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i</span><br></pre></td></tr></table></figure>
+<p>使用<a href="http://www.rubular.com/" target="_blank" rel="noopener">Rubular</a>测试正则表达式, 要把 \A 和 \Z 去掉.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo2.png" alt=""></p>
+<h2 id="self"><a href="#self" class="headerlink" title="self"></a>self</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  <span class="keyword">self</span>.email = <span class="keyword">self</span>.email.downcase</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>self</code> 表示当前用户. 在 User 模型中, 右侧的 self 关键字是可选的, 但左侧的 self 不能省略.<br>因此可以写成 <code>self.email = email.downcase</code></p>
+<h1 id="安全密码"><a href="#安全密码" class="headerlink" title="安全密码"></a>安全密码</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  has_secure_password</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>在模型中调用<code>has_secure_password</code>方法后, 会自动添加如下功能:</p>
+<ul>
+<li>在数据库中的 password_digest 列存储安全的密码哈希值;</li>
+<li>获得一对虚拟属性, password 和 password_confirmation, 而且创建用户对象时会<br>执行存在性验证和匹配性验证; (“虚拟”的意思是模型对象中有属性, 但数据库中没有对应的列)</li>
+<li>获得 <code>authenticate</code> 方法, 如果密码正确, 返回对应的用户对象, 否者返回 false.</li>
+</ul>
 
       
     </div>
@@ -364,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/21/第4章-Rails背后的Ruby/" rel="next" title="第4章 Rails背后的Ruby">
-                <i class="fa fa-chevron-left"></i> 第4章 Rails背后的Ruby
+              <a href="/2018/01/22/第5章-完善布局/" rel="next" title="第5章 完善布局">
+                <i class="fa fa-chevron-left"></i> 第5章 完善布局
               </a>
             
           </div>
@@ -373,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/23/第6章-用户建模/" rel="prev" title="第6章 用户建模">
-                第6章 用户建模 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Asset-Pipeline"><span class="nav-number">1.</span> <span class="nav-text">Asset Pipeline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路由"><span class="nav-number">2.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成测试"><span class="nav-number">3.1.</span> <span class="nav-text">集成测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试辅助方法"><span class="nav-number">3.2.</span> <span class="nav-text">测试辅助方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#models-模型"><span class="nav-number">1.</span> <span class="nav-text">models 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成模型"><span class="nav-number">1.1.</span> <span class="nav-text">生成模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id-列"><span class="nav-number">1.2.</span> <span class="nav-text">id 列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索数据模型"><span class="nav-number">1.3.</span> <span class="nav-text">探索数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找对象"><span class="nav-number">1.4.</span> <span class="nav-text">查找对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reload"><span class="nav-number">1.5.</span> <span class="nav-text">reload</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#validations-验证数据"><span class="nav-number">2.</span> <span class="nav-text">validations 验证数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#valid-有效性测试"><span class="nav-number">2.1.</span> <span class="nav-text">valid? 有效性测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.2.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self"><span class="nav-number">2.3.</span> <span class="nav-text">self</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安全密码"><span class="nav-number">3.</span> <span class="nav-text">安全密码</span></a></li></ol></div>
             
 
           </div>
