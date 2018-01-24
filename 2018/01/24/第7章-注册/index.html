@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="创建演示应用设定不要上传的档(这一步教程里没有, 但我认为这是新建一个项目首先要做的)  cp config/database.yml config/database.yml.example 在 .gitignore 文件中加入 config/database.yml 然后init项目  gem 常用格式 gem &amp;#39;sqlite3&amp;#39; 如果没在 gem 指令中指定版本号, Bundl">
+<meta name="description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第3章 基本静态的页面">
-<meta property="og:url" content="http://yoursite.com/2018/01/19/第3章-基本静态的页面/index.html">
+<meta property="og:title" content="第7章 注册">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/第7章-注册/index.html">
 <meta property="og:site_name" content="Janice Jiang">
-<meta property="og:description" content="创建演示应用设定不要上传的档(这一步教程里没有, 但我认为这是新建一个项目首先要做的)  cp config/database.yml config/database.yml.example 在 .gitignore 文件中加入 config/database.yml 然后init项目  gem 常用格式 gem &amp;#39;sqlite3&amp;#39; 如果没在 gem 指令中指定版本号, Bundl">
+<meta property="og:description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T08:22:52.000Z">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo3.png">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo4.png">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo5.png">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo8.png">
+<meta property="og:updated_time" content="2018-01-24T14:01:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第3章 基本静态的页面">
-<meta name="twitter:description" content="创建演示应用设定不要上传的档(这一步教程里没有, 但我认为这是新建一个项目首先要做的)  cp config/database.yml config/database.yml.example 在 .gitignore 文件中加入 config/database.yml 然后init项目  gem 常用格式 gem &amp;#39;sqlite3&amp;#39; 如果没在 gem 指令中指定版本号, Bundl">
+<meta name="twitter:title" content="第7章 注册">
+<meta name="twitter:description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
+<meta name="twitter:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo3.png">
 
 
 
@@ -119,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/19/第3章-基本静态的页面/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/24/第7章-注册/"/>
 
 
 
 
 
-  <title>第3章 基本静态的页面 | Janice Jiang</title>
+  <title>第7章 注册 | Janice Jiang</title>
   
 
 
@@ -242,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/第3章-基本静态的页面/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/第7章-注册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janice Jiang">
@@ -259,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第3章 基本静态的页面</h1>
+          <h1 class="post-title" itemprop="name headline">第7章 注册</h1>
         
 
         <div class="post-meta">
@@ -271,8 +276,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T18:33:17+08:00">
-                2018-01-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T15:23:40+08:00">
+                2018-01-24
               </time>
             
 
@@ -331,33 +336,18 @@
       
 
       
-        <h1 id="创建演示应用"><a href="#创建演示应用" class="headerlink" title="创建演示应用"></a>创建演示应用</h1><h2 id="设定不要上传的档"><a href="#设定不要上传的档" class="headerlink" title="设定不要上传的档"></a>设定不要上传的档</h2><p>(这一步教程里没有, 但我认为这是新建一个项目首先要做的)</p>
-<ul>
-<li><code>cp config/database.yml config/database.yml.example</code></li>
-<li>在 <code>.gitignore</code> 文件中加入 <code>config/database.yml</code></li>
-<li>然后init项目</li>
-</ul>
-<h2 id="gem-常用格式"><a href="#gem-常用格式" class="headerlink" title="gem 常用格式"></a>gem 常用格式</h2><ul>
-<li><code>gem &#39;sqlite3&#39;</code> 如果没在 gem 指令中指定版本号, Bundler 会自动安装最新版</li>
-<li><code>gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;</code> 安装版本号大于或等于 1.3.0 的最新版 uglifier</li>
-<li><code>gem &#39;pg&#39;, &#39;~&gt; 0.18&#39;</code> 只安装最后一个数字变化的版本(例如从 0.18 到 0.21.0)</li>
-</ul>
-<h2 id="heroku-常用指令"><a href="#heroku-常用指令" class="headerlink" title="heroku 常用指令"></a>heroku 常用指令</h2><ul>
-<li>heroku 只能免费创建5个应用, 因为常常用 heroku 做练习, 所以在创建应用之前先用<br><code>heroku apps</code> 确认已创建的应用个数.</li>
-<li>如果满额了, 则删除一个 <code>heroku apps:destroy --app rails101</code></li>
-<li>创建应用时指定应用名称 <code>heroku create railstutorial</code></li>
-</ul>
-<h1 id="静态页面"><a href="#静态页面" class="headerlink" title="静态页面"></a>静态页面</h1><h2 id="home-动作的路由"><a href="#home-动作的路由" class="headerlink" title="home 动作的路由"></a>home 动作的路由</h2><p><code>get &#39;static_pages/home&#39;</code> 把发给 static_pages/home 的 GET 请求, 映射到 StaticPages<br>控制器的 home 动作上.</p>
-<h2 id="HTTP-基本操作"><a href="#HTTP-基本操作" class="headerlink" title="HTTP 基本操作"></a>HTTP 基本操作</h2><p>(四种请求类型 Rails 都支持)<br><code>GET</code> 读取网页<br><code>POST</code> 提交表单<br><code>PATCH</code> 更新<br><code>DELETE</code> 销毁</p>
-<h2 id="继承-lt"><a href="#继承-lt" class="headerlink" title="继承 &lt;"></a>继承 &lt;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesController &lt; ApplicationController</span><br><span class="line">  def home</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p>如果是普通的 Ruby 代码, <code>home</code> 方法什么也做不了. 但因为 StaticPagesController 继承自<br>ApplicationController, 其中的方法在 Rails 框架中就有了特殊意义.<br>访问 /static_pages/home 时, Rails 会在 StaticPages 控制器中寻找 home 动作, 然后执行该<br>动作, 因为 home 动作是空的, 所以只会渲染相应的视图.</p>
-<h1 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h1><p>如果测试代码特别简短, 倾向于先编写测试<br><strong>TDD 测试驱动开发流程:</strong></p>
-<ul>
-<li>遇红: 先编写一个失败测试</li>
-<li>变绿: 然后编写应用代码让测试通过</li>
-<li>重构: 最后再根据需要重构代码</li>
-</ul>
-<h1 id="特殊的函数-setup"><a href="#特殊的函数-setup" class="headerlink" title="特殊的函数 setup"></a>特殊的函数 setup</h1><p>这个函数在每个测试运行之前执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class StaticPagesControllerTest &lt; ActionDispatch::IntegrationTest</span><br><span class="line">  def setup</span><br><span class="line">    @base_title = &quot;Ruby on Rails Tutorial Sample App&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+        <h1 id="显示用户的信息"><a href="#显示用户的信息" class="headerlink" title="显示用户的信息"></a>显示用户的信息</h1><h2 id="resources-资源"><a href="#resources-资源" class="headerlink" title="resources 资源"></a>resources 资源</h2><p><code>resources :users</code> 提供了相应 URL 的具名路由<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo3.png" alt=""><br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo4.png" alt=""></p>
+<h2 id="params-id"><a href="#params-id" class="headerlink" title="params[:id]"></a>params[:id]</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span> &lt; ApplicationController</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show</span></span></span><br><span class="line">    @user = User.find(params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>params[:id]</code> 会返回用户的ID</p>
+<h2 id="Gravatar-头像"><a href="#Gravatar-头像" class="headerlink" title="Gravatar 头像"></a>Gravatar 头像</h2><p>默认情况下, 所有辅助方法文件中定义的方法都自动在任意视图中可用, 不过为了便于管理, 我们会把<br><code>gravatar_for</code> 方法放在 Users 控制器对应的辅助方法文件中.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">UsersHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">gravatar_for</span><span class="params">(user, <span class="symbol">size:</span> <span class="number">80</span>)</span></span></span><br><span class="line">    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)</span><br><span class="line">    gravatar_url = <span class="string">"https://secure.gravatar.com/avatar/<span class="subst">#&#123;gravatar_id&#125;</span>?s=<span class="subst">#&#123;size&#125;</span>"</span></span><br><span class="line">    image_tag(gravatar_url, <span class="symbol">alt:</span> user.name, <span class="class"><span class="keyword">class</span>: "<span class="title">gravatar</span>")</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p><code>size: 80</code> 从 Ruby 2.0 开始, 可以使用关键字参数; 调用时如不指定默认为 80.</p>
+<h1 id="signup-注册"><a href="#signup-注册" class="headerlink" title="signup 注册"></a>signup 注册</h1><h2 id="注册表单的-HTML"><a href="#注册表单的-HTML" class="headerlink" title="注册表单的 HTML"></a>注册表单的 HTML</h2><p>快捷键 <code>option</code> + <code>command</code> + <code>i</code><br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo5.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;/users&quot; method=&quot;post&quot; ...&gt;</span><br></pre></td></tr></table></figure></p>
+<p>设定这两个属性, 提交表单时 Rails 会向 /users 发送 POST 请求;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=&quot;user[name]&quot; ...&gt;</span><br></pre></td></tr></table></figure></p>
+<p>提交表单后, Rails 会在 params 散列里嵌套一个名为 user 的散列, 散列中的 <code>键</code> 是 input 标签 name 属性的值, 键对应的 <code>值</code> 是用户在字段中填写的内容.</p>
+<p>(params散列中包含每次请求的信息)<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo8.png" alt=""></p>
+<h2 id="健壮参数"><a href="#健壮参数" class="headerlink" title="健壮参数"></a>健壮参数</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_params</span></span></span><br><span class="line">  params.<span class="keyword">require</span>(<span class="symbol">:user</span>).permit(<span class="symbol">:name</span>, <span class="symbol">:email</span>, <span class="symbol">:password</span>,</span><br><span class="line">                               <span class="symbol">:password_confirmation</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">=&gt; &lt;ActionController::Parameters &#123;<span class="string">"name"</span>=&gt;<span class="string">""</span>, <span class="string">"email"</span>=&gt;<span class="string">""</span>, <span class="string">"password"</span>=&gt;<span class="string">""</span>, <span class="string">"password_confirmation"</span>=&gt;<span class="string">""</span>&#125; <span class="symbol">permitted:</span> true&gt;</span><br></pre></td></tr></table></figure>
+<p><code>user_params</code> 方法的返回值是一个 params 散列, 只包含允许使用的属性.</p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p><code>redirect_to @user</code> 也可以写成 <code>redirect_to user_url(@user)</code><br>Rails 看到 redirect_to @user 后, 知道我们是想重定向到 user_url(@user).</p>
 
       
     </div>
@@ -382,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/01/23/第6章-用户建模/" rel="next" title="第6章 用户建模">
+                <i class="fa fa-chevron-left"></i> 第6章 用户建模
               </a>
             
           </div>
@@ -391,10 +381,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/21/第4章-Rails背后的Ruby/" rel="prev" title="第4章 Rails背后的Ruby">
-                第4章 Rails背后的Ruby <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建演示应用"><span class="nav-number">1.</span> <span class="nav-text">创建演示应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设定不要上传的档"><span class="nav-number">1.1.</span> <span class="nav-text">设定不要上传的档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gem-常用格式"><span class="nav-number">1.2.</span> <span class="nav-text">gem 常用格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#heroku-常用指令"><span class="nav-number">1.3.</span> <span class="nav-text">heroku 常用指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态页面"><span class="nav-number">2.</span> <span class="nav-text">静态页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#home-动作的路由"><span class="nav-number">2.1.</span> <span class="nav-text">home 动作的路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-基本操作"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP 基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-lt"><span class="nav-number">2.3.</span> <span class="nav-text">继承 &lt;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TDD"><span class="nav-number">3.</span> <span class="nav-text">TDD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊的函数-setup"><span class="nav-number">4.</span> <span class="nav-text">特殊的函数 setup</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#显示用户的信息"><span class="nav-number">1.</span> <span class="nav-text">显示用户的信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#resources-资源"><span class="nav-number">1.1.</span> <span class="nav-text">resources 资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#params-id"><span class="nav-number">1.2.</span> <span class="nav-text">params[:id]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gravatar-头像"><span class="nav-number">1.3.</span> <span class="nav-text">Gravatar 头像</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#signup-注册"><span class="nav-number">2.</span> <span class="nav-text">signup 注册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册表单的-HTML"><span class="nav-number">2.1.</span> <span class="nav-text">注册表单的 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#健壮参数"><span class="nav-number">2.2.</span> <span class="nav-text">健壮参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向"><span class="nav-number">2.3.</span> <span class="nav-text">重定向</span></a></li></ol></li></ol></div>
             
 
           </div>
