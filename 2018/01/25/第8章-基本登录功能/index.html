@@ -79,22 +79,19 @@
 
 
 
-<meta name="description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
+<meta name="description" content="flash.nowflash.now 专门用于在重新渲染的页面中显示闪现消息; 与 falsh 不同的是, flash.now 中的内容会在下次请求时消失. 登录登录表单12&amp;lt;%= form_for(:session, url: login_path) do |f| %&amp;gt;&amp;lt;% end %&amp;gt; session 会话不是模型, 因此不能创建类似 @user 的变量.对会话来说,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第7章 注册">
-<meta property="og:url" content="http://yoursite.com/2018/01/24/第7章-注册/index.html">
+<meta property="og:title" content="第8章 基本登录功能">
+<meta property="og:url" content="http://yoursite.com/2018/01/25/第8章-基本登录功能/index.html">
 <meta property="og:site_name" content="Janice Jiang">
-<meta property="og:description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
+<meta property="og:description" content="flash.nowflash.now 专门用于在重新渲染的页面中显示闪现消息; 与 falsh 不同的是, flash.now 中的内容会在下次请求时消失. 登录登录表单12&amp;lt;%= form_for(:session, url: login_path) do |f| %&amp;gt;&amp;lt;% end %&amp;gt; session 会话不是模型, 因此不能创建类似 @user 的变量.对会话来说,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo3.png">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo4.png">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo5.png">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo8.png">
-<meta property="og:updated_time" content="2018-01-24T14:01:45.000Z">
+<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo10.png">
+<meta property="og:updated_time" content="2018-01-25T13:04:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第7章 注册">
-<meta name="twitter:description" content="显示用户的信息resources 资源resources :users 提供了相应 URL 的具名路由 params[:id]12345class UsersController &amp;lt; ApplicationController  def show    @user = User.find(params[:id])  endend params[:id] 会返回用户的ID Gravatar 头">
-<meta name="twitter:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo3.png">
+<meta name="twitter:title" content="第8章 基本登录功能">
+<meta name="twitter:description" content="flash.nowflash.now 专门用于在重新渲染的页面中显示闪现消息; 与 falsh 不同的是, flash.now 中的内容会在下次请求时消失. 登录登录表单12&amp;lt;%= form_for(:session, url: login_path) do |f| %&amp;gt;&amp;lt;% end %&amp;gt; session 会话不是模型, 因此不能创建类似 @user 的变量.对会话来说,">
+<meta name="twitter:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo10.png">
 
 
 
@@ -124,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/24/第7章-注册/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/25/第8章-基本登录功能/"/>
 
 
 
 
 
-  <title>第7章 注册 | Janice Jiang</title>
+  <title>第8章 基本登录功能 | Janice Jiang</title>
   
 
 
@@ -247,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/第7章-注册/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/第8章-基本登录功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janice Jiang">
@@ -264,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第7章 注册</h1>
+          <h1 class="post-title" itemprop="name headline">第8章 基本登录功能</h1>
         
 
         <div class="post-meta">
@@ -276,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T15:23:40+08:00">
-                2018-01-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T15:06:16+08:00">
+                2018-01-25
               </time>
             
 
@@ -336,18 +333,19 @@
       
 
       
-        <h1 id="显示用户的信息"><a href="#显示用户的信息" class="headerlink" title="显示用户的信息"></a>显示用户的信息</h1><h2 id="resources-资源"><a href="#resources-资源" class="headerlink" title="resources 资源"></a>resources 资源</h2><p><code>resources :users</code> 提供了相应 URL 的具名路由<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo3.png" alt=""><br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo4.png" alt=""></p>
-<h2 id="params-id"><a href="#params-id" class="headerlink" title="params[:id]"></a>params[:id]</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span> &lt; ApplicationController</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show</span></span></span><br><span class="line">    @user = User.find(params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p><code>params[:id]</code> 会返回用户的ID</p>
-<h2 id="Gravatar-头像"><a href="#Gravatar-头像" class="headerlink" title="Gravatar 头像"></a>Gravatar 头像</h2><p>默认情况下, 所有辅助方法文件中定义的方法都自动在任意视图中可用, 不过为了便于管理, 我们会把<br><code>gravatar_for</code> 方法放在 Users 控制器对应的辅助方法文件中.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">UsersHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">gravatar_for</span><span class="params">(user, <span class="symbol">size:</span> <span class="number">80</span>)</span></span></span><br><span class="line">    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)</span><br><span class="line">    gravatar_url = <span class="string">"https://secure.gravatar.com/avatar/<span class="subst">#&#123;gravatar_id&#125;</span>?s=<span class="subst">#&#123;size&#125;</span>"</span></span><br><span class="line">    image_tag(gravatar_url, <span class="symbol">alt:</span> user.name, <span class="class"><span class="keyword">class</span>: "<span class="title">gravatar</span>")</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p><code>size: 80</code> 从 Ruby 2.0 开始, 可以使用关键字参数; 调用时如不指定默认为 80.</p>
-<h1 id="signup-注册"><a href="#signup-注册" class="headerlink" title="signup 注册"></a>signup 注册</h1><h2 id="注册表单的-HTML"><a href="#注册表单的-HTML" class="headerlink" title="注册表单的 HTML"></a>注册表单的 HTML</h2><p>快捷键 <code>option</code> + <code>command</code> + <code>i</code><br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo5.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;/users&quot; method=&quot;post&quot; ...&gt;</span><br></pre></td></tr></table></figure></p>
-<p>设定这两个属性, 提交表单时 Rails 会向 /users 发送 POST 请求;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=&quot;user[name]&quot; ...&gt;</span><br></pre></td></tr></table></figure></p>
-<p>提交表单后, Rails 会在 params 散列里嵌套一个名为 user 的散列, 散列中的 <code>键</code> 是 input 标签 name 属性的值, 键对应的 <code>值</code> 是用户在字段中填写的内容.</p>
-<p>(params散列中包含每次请求的信息)<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo8.png" alt=""></p>
-<h2 id="健壮参数"><a href="#健壮参数" class="headerlink" title="健壮参数"></a>健壮参数</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_params</span></span></span><br><span class="line">  params.<span class="keyword">require</span>(<span class="symbol">:user</span>).permit(<span class="symbol">:name</span>, <span class="symbol">:email</span>, <span class="symbol">:password</span>,</span><br><span class="line">                               <span class="symbol">:password_confirmation</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">=&gt; &lt;ActionController::Parameters &#123;<span class="string">"name"</span>=&gt;<span class="string">""</span>, <span class="string">"email"</span>=&gt;<span class="string">""</span>, <span class="string">"password"</span>=&gt;<span class="string">""</span>, <span class="string">"password_confirmation"</span>=&gt;<span class="string">""</span>&#125; <span class="symbol">permitted:</span> true&gt;</span><br></pre></td></tr></table></figure>
-<p><code>user_params</code> 方法的返回值是一个 params 散列, 只包含允许使用的属性.</p>
-<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p><code>redirect_to @user</code> 也可以写成 <code>redirect_to user_url(@user)</code><br>Rails 看到 redirect_to @user 后, 知道我们是想重定向到 user_url(@user).</p>
+        <h1 id="flash-now"><a href="#flash-now" class="headerlink" title="flash.now"></a>flash.now</h1><p><code>flash.now</code> 专门用于在重新渲染的页面中显示闪现消息; 与 falsh 不同的是, flash.now 中的内容会在下<br>次请求时消失.</p>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><h2 id="登录表单"><a href="#登录表单" class="headerlink" title="登录表单"></a>登录表单</h2><figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=<span class="ruby"> form_for(<span class="symbol">:session</span>, <span class="symbol">url:</span> login_path) <span class="keyword">do</span> <span class="params">|f|</span> </span>%&gt;</span><br><span class="line">&lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br></pre></td></tr></table></figure>
+<p><code>session</code> 会话不是模型, 因此不能创建类似 <code>@user</code> 的变量.<br>对会话来说, 我们需要指明资源的名称以及相应的 URL.</p>
+<h2 id="引入辅助方法模块"><a href="#引入辅助方法模块" class="headerlink" title="引入辅助方法模块"></a>引入辅助方法模块</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationController</span> &lt; ActionController::Base</span></span><br><span class="line">  <span class="keyword">include</span> SessionsHelper</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>在控制器的基类(ApplicationController)中引入辅助方法模块 <code>SessionsHelper</code>, 其中的定义的方法可<br>以在控制器中使用.</p>
+<h2 id="log-in-方法"><a href="#log-in-方法" class="headerlink" title="log_in 方法"></a>log_in 方法</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">SessionsHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">log_in</span><span class="params">(user)</span></span></span><br><span class="line">    session[<span class="symbol">:user_id</span>] = user.id</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>session[:user_id] = user.id</code> 会在用户的浏览器中创建一个临时 cookie, 内容是加密后的用户 ID.<br>session 方法创建的是临时会话, 浏览器关闭后立即失效.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo10.png" alt=""></p>
+<h2 id="current-user-方法"><a href="#current-user-方法" class="headerlink" title="current_user 方法"></a>current_user 方法</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">SessionsHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">current_user</span></span></span><br><span class="line">    @current_user <span class="params">||</span>= User.find_by(<span class="symbol">id:</span> session[<span class="symbol">:user_id</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><strong>||= 运算符:</strong><br><code>@current_user ||= User.find_by(id: session[:user_id])</code><br>几乎等效于 <code>@current_user = @current_user || User.find_by(id: session[:user_id])</code><br>只有当 @current_user 为假时才会执行后面的表达式; 如果 @current_user 为真, <code>||</code> 会终止执行, 这种方式叫短路计算.</p>
+<h2 id="获取固件用户"><a href="#获取固件用户" class="headerlink" title="获取固件用户"></a>获取固件用户</h2><figure class="highlight yml"><figcaption><span>test/fixtures/users.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">michael:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">Michael</span> <span class="string">Example</span></span><br><span class="line"><span class="attr">  email:</span> <span class="string">michael@example.com</span></span><br><span class="line"><span class="attr">  password_digest:</span> &lt;%=<span class="ruby"> User.digest(<span class="string">'password'</span>) </span>%&gt;</span><br></pre></td></tr></table></figure>
+<p><code>user = users(:michael)</code> 在测试中获取这个用户</p>
+<h2 id="is-logged-in"><a href="#is-logged-in" class="headerlink" title="is_logged_in?"></a>is_logged_in?</h2><figure class="highlight ruby"><figcaption><span>test/test_helper.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ActiveSupport::TestCase</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">is_logged_in?</span></span></span><br><span class="line">    !session[<span class="symbol">:user_id</span>].<span class="literal">nil</span>?</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>is_logged_in?</code> 辅助方法和 <code>logged_in?</code> 功能一样, 测试中不能使用 current_user 方法, 但是可以使用 session 方法. (定义不同的名字以免混淆)</p>
 
       
     </div>
@@ -372,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/23/第6章-用户建模/" rel="next" title="第6章 用户建模">
-                <i class="fa fa-chevron-left"></i> 第6章 用户建模
+              <a href="/2018/01/24/第7章-注册/" rel="next" title="第7章 注册">
+                <i class="fa fa-chevron-left"></i> 第7章 注册
               </a>
             
           </div>
@@ -381,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/25/第8章-基本登录功能/" rel="prev" title="第8章 基本登录功能">
-                第8章 基本登录功能 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +505,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#显示用户的信息"><span class="nav-number">1.</span> <span class="nav-text">显示用户的信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#resources-资源"><span class="nav-number">1.1.</span> <span class="nav-text">resources 资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#params-id"><span class="nav-number">1.2.</span> <span class="nav-text">params[:id]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gravatar-头像"><span class="nav-number">1.3.</span> <span class="nav-text">Gravatar 头像</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#signup-注册"><span class="nav-number">2.</span> <span class="nav-text">signup 注册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册表单的-HTML"><span class="nav-number">2.1.</span> <span class="nav-text">注册表单的 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#健壮参数"><span class="nav-number">2.2.</span> <span class="nav-text">健壮参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向"><span class="nav-number">2.3.</span> <span class="nav-text">重定向</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#flash-now"><span class="nav-number">1.</span> <span class="nav-text">flash.now</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登录"><span class="nav-number">2.</span> <span class="nav-text">登录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#登录表单"><span class="nav-number">2.1.</span> <span class="nav-text">登录表单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入辅助方法模块"><span class="nav-number">2.2.</span> <span class="nav-text">引入辅助方法模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log-in-方法"><span class="nav-number">2.3.</span> <span class="nav-text">log_in 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#current-user-方法"><span class="nav-number">2.4.</span> <span class="nav-text">current_user 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取固件用户"><span class="nav-number">2.5.</span> <span class="nav-text">获取固件用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#is-logged-in"><span class="nav-number">2.6.</span> <span class="nav-text">is_logged_in?</span></a></li></ol></li></ol></div>
             
 
           </div>

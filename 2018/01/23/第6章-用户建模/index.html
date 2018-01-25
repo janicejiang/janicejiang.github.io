@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo1.png">
 <meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo2.png">
-<meta property="og:updated_time" content="2018-01-23T14:06:46.000Z">
+<meta property="og:updated_time" content="2018-01-25T09:16:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第6章 用户建模">
 <meta name="twitter:description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
@@ -345,7 +345,7 @@
 <p>虽然一般习惯吧创建和保存分成如上所示的两步完成, 不过 Active Record 也允许使用 <code>User.create</code> 方法把这两步合成一步.</p>
 <h2 id="查找对象"><a href="#查找对象" class="headerlink" title="查找对象"></a>查找对象</h2><ul>
 <li><code>User.find(1)</code> 把用户的 <code>id</code> 传给 User.find 方法，Active Record 会返回 id 为 1 的用户对象; 如果 id 不存在, <code>find</code> 方法会抛出 ActiveRecord::RecordNotFound 异常.</li>
-<li><code>User.find_by(email: &quot;mhartl@example.com&quot;)</code> Active Record 还支持通过属性查找用户</li>
+<li><code>User.find_by(email: &quot;mhartl@example.com&quot;)</code> Active Record 还支持通过属性查找用户, 如果找不到返回 nil.</li>
 </ul>
 <h2 id="reload"><a href="#reload" class="headerlink" title="reload"></a>reload</h2><p><code>user.reload.email</code> reload 方法会使用数据库中的数据重新加载对象</p>
 <h1 id="validations-验证数据"><a href="#validations-验证数据" class="headerlink" title="validations 验证数据"></a>validations 验证数据</h1><p><code>rails test:models</code> 只运行模型测试</p>
@@ -479,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
