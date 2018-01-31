@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
+<meta name="description" content="更新用户隐藏字段&amp;lt;input name=&amp;quot;_method&amp;quot; type=&amp;quot;hidden&amp;quot; value=&amp;quot;patch&amp;quot; /&amp;gt;因为 Web 浏览器不支持发送 PATCH 请求, 所以 Rails 在 POST 请求中使用这个隐藏字段把它伪装成PATCH 请求. new_record?使用 form_for(@user) 构建表单时,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第6章 用户建模">
-<meta property="og:url" content="http://yoursite.com/2018/01/23/第6章-用户建模/index.html">
+<meta property="og:title" content="第10章 更新、显示和删除用户">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/第10章-更新、显示和删除用户/index.html">
 <meta property="og:site_name" content="Janice Jiang">
-<meta property="og:description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
+<meta property="og:description" content="更新用户隐藏字段&amp;lt;input name=&amp;quot;_method&amp;quot; type=&amp;quot;hidden&amp;quot; value=&amp;quot;patch&amp;quot; /&amp;gt;因为 Web 浏览器不支持发送 PATCH 请求, 所以 Rails 在 POST 请求中使用这个隐藏字段把它伪装成PATCH 请求. new_record?使用 form_for(@user) 构建表单时,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo1.png">
-<meta property="og:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo2.png">
-<meta property="og:updated_time" content="2018-01-25T09:16:32.000Z">
+<meta property="og:updated_time" content="2018-01-30T15:29:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第6章 用户建模">
-<meta name="twitter:description" content="models 模型生成模型$ rails g model user 模型名是单数$ rails g controller users 控制器名是复数 id 列下图中的 id 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标识符. 探索数据模型沙盒模式:$ rails console --sandbox 在沙盒模式下使用控制台, 退出当前会话后">
-<meta name="twitter:image" content="http://p2zzuz6po.bkt.clouddn.com/hexo1.png">
+<meta name="twitter:title" content="第10章 更新、显示和删除用户">
+<meta name="twitter:description" content="更新用户隐藏字段&amp;lt;input name=&amp;quot;_method&amp;quot; type=&amp;quot;hidden&amp;quot; value=&amp;quot;patch&amp;quot; /&amp;gt;因为 Web 浏览器不支持发送 PATCH 请求, 所以 Rails 在 POST 请求中使用这个隐藏字段把它伪装成PATCH 请求. new_record?使用 form_for(@user) 构建表单时,">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/23/第6章-用户建模/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/30/第10章-更新、显示和删除用户/"/>
 
 
 
 
 
-  <title>第6章 用户建模 | Janice Jiang</title>
+  <title>第10章 更新、显示和删除用户 | Janice Jiang</title>
   
 
 
@@ -245,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/第6章-用户建模/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/第10章-更新、显示和删除用户/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janice Jiang">
@@ -262,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第6章 用户建模</h1>
+          <h1 class="post-title" itemprop="name headline">第10章 更新、显示和删除用户</h1>
         
 
         <div class="post-meta">
@@ -274,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:29:25+08:00">
-                2018-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T15:11:29+08:00">
+                2018-01-30
               </time>
             
 
@@ -334,34 +331,18 @@
       
 
       
-        <h1 id="models-模型"><a href="#models-模型" class="headerlink" title="models 模型"></a>models 模型</h1><h2 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h2><p><code>$ rails g model user</code> 模型名是单数<br><code>$ rails g controller users</code> 控制器名是复数</p>
-<h2 id="id-列"><a href="#id-列" class="headerlink" title="id 列"></a>id 列</h2><p>下图中的 <code>id</code> 列在 db/schema.rb 中没有出现过, 这个列是自动生成的, Rails 用这个列作为行的唯一标<br>识符.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo1.png" alt=""></p>
-<h2 id="探索数据模型"><a href="#探索数据模型" class="headerlink" title="探索数据模型"></a>探索数据模型</h2><p><strong>沙盒模式:</strong><br><code>$ rails console --sandbox</code> 在沙盒模式下使用控制台, 退出当前会话后, 对数据库做的所有改动都会回归到原来的状态.</p>
-<p><strong>创建user:</strong></p>
-<ol>
-<li><code>user = User.new</code> 只在内存中创建一个对象</li>
-<li><code>user.save</code> 才把对象保存到数据库中, Rails 还会在控制台中显示对应的 <code>SQL</code> 语句.</li>
-</ol>
-<p>虽然一般习惯吧创建和保存分成如上所示的两步完成, 不过 Active Record 也允许使用 <code>User.create</code> 方法把这两步合成一步.</p>
-<h2 id="查找对象"><a href="#查找对象" class="headerlink" title="查找对象"></a>查找对象</h2><ul>
-<li><code>User.find(1)</code> 把用户的 <code>id</code> 传给 User.find 方法，Active Record 会返回 id 为 1 的用户对象; 如果 id 不存在, <code>find</code> 方法会抛出 ActiveRecord::RecordNotFound 异常.</li>
-<li><code>User.find_by(email: &quot;mhartl@example.com&quot;)</code> Active Record 还支持通过属性查找用户, 如果找不到返回 nil.</li>
-</ul>
-<h2 id="reload"><a href="#reload" class="headerlink" title="reload"></a>reload</h2><p><code>user.reload.email</code> reload 方法会使用数据库中的数据重新加载对象</p>
-<h1 id="validations-验证数据"><a href="#validations-验证数据" class="headerlink" title="validations 验证数据"></a>validations 验证数据</h1><p><code>rails test:models</code> 只运行模型测试</p>
-<h2 id="valid-有效性测试"><a href="#valid-有效性测试" class="headerlink" title="valid? 有效性测试"></a>valid? 有效性测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rails console --sandbox</span><br><span class="line">&gt; user = User.new(name: &quot;&quot;, email: &quot;mhartl@example.com&quot;)</span><br><span class="line">&gt; user.valid?</span><br></pre></td></tr></table></figure>
-<p>使用 <code>valid?</code> 方法检查 user 变量的有效性, 如果有一个或多个验证失败, 返回值为 false;<br>如果所有验证都能通过, 返回 true.<br>使用 <code>user.errors.full_messages</code> 查看全部错误信息</p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i</span><br></pre></td></tr></table></figure>
-<p>使用<a href="http://www.rubular.com/" target="_blank" rel="noopener">Rubular</a>测试正则表达式, 要把 \A 和 \Z 去掉.<br><img src="http://p2zzuz6po.bkt.clouddn.com/hexo2.png" alt=""></p>
-<h2 id="self"><a href="#self" class="headerlink" title="self"></a>self</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  <span class="keyword">self</span>.email = <span class="keyword">self</span>.email.downcase</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>其中 <code>self</code> 表示当前用户. 在 User 模型中, 右侧的 self 关键字是可选的, 但左侧的 self 不能省略.<br>因此可以写成 <code>self.email = email.downcase</code></p>
-<h1 id="安全密码"><a href="#安全密码" class="headerlink" title="安全密码"></a>安全密码</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  has_secure_password</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>在模型中调用<code>has_secure_password</code>方法后, 会自动添加如下功能:</p>
-<ul>
-<li>在数据库中的 password_digest 列存储安全的密码哈希值;</li>
-<li>获得一对虚拟属性, password 和 password_confirmation, 而且创建用户对象时会<br>执行存在性验证和匹配性验证; (“虚拟”的意思是模型对象中有属性, 但数据库中没有对应的列)</li>
-<li>获得 <code>authenticate</code> 方法, 如果密码正确, 返回对应的用户对象, 否者返回 false.</li>
-</ul>
+        <h1 id="更新用户"><a href="#更新用户" class="headerlink" title="更新用户"></a>更新用户</h1><h2 id="隐藏字段"><a href="#隐藏字段" class="headerlink" title="隐藏字段"></a>隐藏字段</h2><p><code>&lt;input name=&quot;_method&quot; type=&quot;hidden&quot; value=&quot;patch&quot; /&gt;</code><br>因为 Web 浏览器不支持发送 PATCH 请求, 所以 Rails 在 POST 请求中使用这个隐藏字段把它伪装成<br>PATCH 请求.</p>
+<h2 id="new-record"><a href="#new-record" class="headerlink" title="new_record?"></a>new_record?</h2><p>使用 <code>form_for(@user)</code> 构建表单时, 如果 <code>@user.new_record?</code> 返回 ture, Rails 发送 POST 请求, 否则<br>发送 PATCH 请求.</p>
+<h2 id="update-attributes"><a href="#update-attributes" class="headerlink" title="update_attributes"></a>update_attributes</h2><p><code>@user.update_attributes(user_params)</code><br>update_attributes 的简写为 <code>update</code></p>
+<h2 id="allow-nil"><a href="#allow-nil" class="headerlink" title="allow_nil"></a>allow_nil</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  validates <span class="symbol">:password</span>, <span class="symbol">presence:</span> <span class="literal">true</span>, <span class="symbol">length:</span> &#123; <span class="symbol">minimum:</span> <span class="number">6</span> &#125;, <span class="symbol">allow_nil:</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>allow_nil: true</code> 更新时允许密码为空<br>注册时(创建对象时) <code>has_secure_password</code> 会执行存在性验证, 捕获密码为 nil 的情况.</p>
+<h1 id="权限系统"><a href="#权限系统" class="headerlink" title="权限系统"></a>权限系统</h1><h2 id="必须先登录"><a href="#必须先登录" class="headerlink" title="必须先登录"></a>必须先登录</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsersController</span> &lt; ApplicationController</span></span><br><span class="line">  before_action <span class="symbol">:logged_in_user</span>, <span class="symbol">only:</span> [<span class="symbol">:edit</span>, <span class="symbol">:update</span>]</span><br><span class="line"></span><br><span class="line">  private</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">logged_in_user</span></span></span><br><span class="line">      <span class="keyword">unless</span> logged_in? <span class="comment"># unless false</span></span><br><span class="line">        flash[<span class="symbol">:danger</span>] = <span class="string">"Please log in."</span></span><br><span class="line">        redirect_to login_url</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下, 前置过滤器 <code>logged_in_user</code> 会应用于控制器中的所有动作, only 散列指定只应用在 edit<br>和 update 两个动作上.</p>
+<h2 id="用户只能编辑自己的资料"><a href="#用户只能编辑自己的资料" class="headerlink" title="用户只能编辑自己的资料"></a>用户只能编辑自己的资料</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">SessionsHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">current_user?</span><span class="params">(user)</span></span></span><br><span class="line">    user == current_user</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>返回布尔值, 要遵守一般约定, 定义 current_user? 方法.</p>
+<h2 id="友好的转向"><a href="#友好的转向" class="headerlink" title="友好的转向"></a>友好的转向</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">SessionsHelper</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">store_location</span></span></span><br><span class="line">    session[<span class="symbol">:forwarding_url</span>] = request.original_url <span class="keyword">if</span> request.get?</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">redirect_back_or</span><span class="params">(default)</span></span></span><br><span class="line">    redirect_to(session[<span class="symbol">:forwarding_url</span>] <span class="params">||</span> default)</span><br><span class="line">    session.delete(<span class="symbol">:forwarding_url</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>在 store_location 方法中, 把 <code>request.original_url</code> 请求页面的地址存储在<br><code>session[:forwarding_url]</code> 中, 而且只当请求是 GET 请求时才储存.</p>
+<p>redirect_back_or 方法用到了或运算符 <code>||</code>, 如果 <code>session[:forwarding_url]</code> 的值不为 nil,<br>就返回其中存储的值, 否则返回默认的地址.</p>
 
       
     </div>
@@ -386,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/22/第5章-完善布局/" rel="next" title="第5章 完善布局">
-                <i class="fa fa-chevron-left"></i> 第5章 完善布局
+              <a href="/2018/01/26/第9章-高级登录功能/" rel="next" title="第9章 高级登录功能">
+                <i class="fa fa-chevron-left"></i> 第9章 高级登录功能
               </a>
             
           </div>
@@ -395,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/24/第7章-注册/" rel="prev" title="第7章 注册">
-                第7章 注册 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#models-模型"><span class="nav-number">1.</span> <span class="nav-text">models 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成模型"><span class="nav-number">1.1.</span> <span class="nav-text">生成模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id-列"><span class="nav-number">1.2.</span> <span class="nav-text">id 列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索数据模型"><span class="nav-number">1.3.</span> <span class="nav-text">探索数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找对象"><span class="nav-number">1.4.</span> <span class="nav-text">查找对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reload"><span class="nav-number">1.5.</span> <span class="nav-text">reload</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#validations-验证数据"><span class="nav-number">2.</span> <span class="nav-text">validations 验证数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#valid-有效性测试"><span class="nav-number">2.1.</span> <span class="nav-text">valid? 有效性测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.2.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self"><span class="nav-number">2.3.</span> <span class="nav-text">self</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安全密码"><span class="nav-number">3.</span> <span class="nav-text">安全密码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更新用户"><span class="nav-number">1.</span> <span class="nav-text">更新用户</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏字段"><span class="nav-number">1.1.</span> <span class="nav-text">隐藏字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-record"><span class="nav-number">1.2.</span> <span class="nav-text">new_record?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update-attributes"><span class="nav-number">1.3.</span> <span class="nav-text">update_attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allow-nil"><span class="nav-number">1.4.</span> <span class="nav-text">allow_nil</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限系统"><span class="nav-number">2.</span> <span class="nav-text">权限系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必须先登录"><span class="nav-number">2.1.</span> <span class="nav-text">必须先登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户只能编辑自己的资料"><span class="nav-number">2.2.</span> <span class="nav-text">用户只能编辑自己的资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#友好的转向"><span class="nav-number">2.3.</span> <span class="nav-text">友好的转向</span></a></li></ol></li></ol></div>
             
 
           </div>
